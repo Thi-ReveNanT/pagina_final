@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="footer.css">
+    <title>index</title>
+</head>
+<body>
+    <div style="margin: 24px;">
+        <nav class="navbar navbar-light" style="background-color: black;">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="menu.html">Menu</a>
+                    </li>
+                    <li>
+                        <a href="formulario.html">Formulario</a>
+                    </li>
+                    <li>
+                        <a href="movies.html">Movies</a>
+                    </li>
+                    <li class="active">
+                        <a href="cuestionario.html">Cuestionario</a>
+                    </li>
+                    <li>
+                        <a href="perfil.html">Perfil</a>
+                    </li>
+                    <li>
+                        <a href="calculadora.html">Calculadora</a>
+                    </li>
+                    <li>
+                        <a href="calculadora2.html">Calculadora Normal</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-header">
+                <div class="image-container">
+                    <img src="imagen.jpg" alt="Imagen" id="question-image" style="width:250px; height:200px;">
+                
+                <h2 id="question">Question text</h2>
+                <ul>
+                    <li>
+                        <input type="radio" name="answer" id="a" class="answer">
+                        <label for="a" id="a_text">Question</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="b" class="answer">
+                        <label for="b" id="b_text">Question</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="c" class="answer">
+                        <label for="c" id="c_text">Question</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="d" class="answer">
+                        <label for="d" id="d_text">Question</label>
+                    </li>
+                </ul>
+
+            </div>
+            <button id="submit">Siguiente</button>
+
+    </div>
+    <script>
+        const quizData = [
+            {
+                question:"Como se llama este loco?",
+                image:  "quiz1.jpg",
+                a:"Dante Sparda",
+                b:"Mickey Mouse",
+                c:"Hello Kitty",
+                d:"Bluey",
+                correct:"a",
+            },
+            {
+                question:"Cual es mi personaje favorito?",
+                image:  "quiz2.jpg",
+                a:"Spawn",
+                b:"Mickey Mouse",
+                c:"Wolverine",
+                d:"Bluey",
+                correct:"a",
+            },
+            {
+                question:"Cuando murio Halo?",
+                image:  "quiz3.jpg",
+                a:"En reach",
+                b:"No muere",
+                c:"Halo 3",
+                d:"Halo 5",
+                correct:"a",
+            },
+            {
+                question:"Quien le pertenece a Marvel?",
+                image:  "quiz4.jpg",
+                a:"Batman",
+                b:"Namor",
+                c:"Flash",
+                d:"Spawn",
+                correct:"a",
+            },
+            {
+                question:"Cual videojuego me gusta mas?",
+                image:  "quiz5.jpg",
+                a:"Warzone",
+                b:"Fortnite",
+                c:"Devil May Cry",
+                d:"Call of Duty",
+                correct:"a",
+            },
+            {
+                question:"Thanos tenia la razon?",
+                image:  "quiz6.jpg",
+                a:"Si",
+                b:"No",
+                c:"Talves",
+                d:"zi",
+                correct:"a",
+            },
+            {
+                question:"Es Nerf o...?",
+                image:  "quiz7.jpg",
+                a:"Nose",
+                b:"Nada",
+                c:"Que es Nerf?",
+                d:"Es la b",
+                correct:"b",
+            },
+            {
+                question:"Call of Duty mas infravalorado?",
+                image:  "quiz8.jpg",
+                a:"Infinite Warfare",
+                b:"No hay",
+                c:"Modern Warfare II",
+                d:"Black ops 4",
+                correct:"d",
+            },
+            {
+                question:"Cual fruta es mi favorita?",
+                image:  "quiz9.jpg",
+                a:"Mango",
+                b:"Pera",
+                c:"Melon",
+                d:"Sandia",
+                correct:"d",
+            },
+            {
+                question:"Mi personaje favorito de videojuegos?",
+                image:  "quiz10.jpg",
+                a:"Dante Sparda",
+                b:"Vergil Sparda",
+                c:"Hello Kitty",
+                d:"Bluey",
+                correct:"b",
+            },
+            {
+                question:"Tony Stark debia sacrificarse?",
+                image:  "quiz11.jpg",
+                a:"Si",
+                b:"No quiero recordar",
+                c:"Talvez",
+                d:"No",
+                correct:"d",
+            },
+            {
+                question:"La capitana Marvel es una inutil?",
+                image:  "quiz12.jpg",
+                a:"No",
+                b:"Talvez",
+                c:"Si",
+                d:"Alomejor",
+                correct:"c",
+            },
+            {
+                question:"Cual es mi personaje favorito de Marvel?",
+                image:  "quiz13.jpg",
+                a:"IronMan/Tony Stark",
+                b:"Capitan America/Steve Rogers",
+                c:"Hulk/Bruce Banner",
+                d:"Thor/Thor",
+                correct:"a",
+            },
+            {
+                question:"Alien vs Predator debe tener reboot?",
+                image:  "quiz14.jpg",
+                a:"No",
+                b:"Si",
+                c:"Talvez",
+                d:"Que es eso?",
+                correct:"b",
+            },
+            {
+                question:"La sociedad es mojigata?",
+                image:  "quiz15.jpg",
+                a:"Si",
+                b:"No",
+                c:"Alomejor",
+                d:"Nose",
+                correct:"a",
+            },
+            {
+                question:"Mejor superpoder?",
+                image:  "quiz16.jpg",
+                a:"Volar",
+                b:"Vision laser",
+                c:"Fuerza",
+                d:"Velocidad",
+                correct:"d",
+            },
+            {
+                question:"Cuantas capas tiene la Tierra?",
+                image:  "quiz17.jpg",
+                a:"5",
+                b:"7",
+                c:"12",
+                d:"9",
+                correct:"a",
+            },
+            {
+                question:"Que es mejor?",
+                image:  "quiz18.jpg",
+                a:"Ak-47",
+                b:"Ak-74",
+                c:"Ak-74u",
+                d:"Ak-101",
+                correct:"a",
+            },
+            {
+                question:"Cual es la mejor banda?",
+                image:  "quiz19.jpg",
+                a:"Metallica",
+                b:"BTS",
+                c:"Kiss",
+                d:"Gorillaz",
+                correct:"a",
+            },
+            {
+                question:"Mejor raza de star wars?",
+                image:  "quiz20.jpg",
+                a:"Mandalorianos",
+                b:"Jedi",
+                c:"Sith",
+                d:"ewoks",
+                correct:"c",
+            },
+        ];
+        const quiz = document.getElementById('quiz');
+        const answerEls = document.querySelectorAll('.answer');
+        const questionEl = document.getElementById('question');
+
+        const a_text = document.getElementById('a_text');
+        const b_text = document.getElementById('b_text');
+        const c_text = document.getElementById('c_text');
+        const d_text = document.getElementById('d_text');
+        const submitBtn = document.getElementById('submit');
+
+
+        let currentQuiz = 0;
+        let score = 0;
+        loadQuiz();
+
+        function loadQuiz(){
+            deselectAnswer();
+            const currentQuizData = quizData[currentQuiz];
+            questionEl.innerText = currentQuizData.question;
+
+            a_text.innerText = currentQuizData.a;
+            b_text.innerText = currentQuizData.b;
+            c_text.innerText = currentQuizData.c;
+            d_text.innerText = currentQuizData.d;
+           
+
+            const questionImage = document.getElementById('question-image');
+            questionImage.src = currentQuizData.image;
+        }
+        function deselectAnswer(){
+            answerEls.forEach(answerEl => answerEl.checked = false);
+        }
+        function getSelect(){
+            let answer;
+            answerEls.forEach(answerEl => {
+                if(answerEl.checked){
+                    answer = answerEl.id;
+                }
+            });
+            return answer;
+        }
+        submitBtn.addEventListener('clic', () => {
+            const answer = getSelected();
+
+            if(answer){
+                if(answer === quizData[currentQuiz].correct){
+                    score++; 
+                }
+                currentQuiz++;
+                if(currentQuiz < quizData.length){
+                    loadQuiz()
+                } else {
+                    quiz.innerHTML = `
+                    <h2>Contestaste ${score}/${quizData.length} de preguntas correctamente</h2>
+                    <button onclick = "location.reload()">Volver</button>
+                    `
+                }
+            }
+        })
+
+    </script>
+
+    <footer>
+        <style>
+        body{
+            background-color: aliceblue;
+        
+        }
+        header{
+            background-color: black;
+            padding: 25px;
+        }
+        nav{
+            background-color: black;
+            padding: 10px;
+        }
+        section{
+            background-color: aliceblue;
+        }
+        article{
+            background-color: blueviolet;
+        }
+        aside{
+            background-color: cornflowerblue;
+            width: 80%;
+            float: right;
+        }
+        footer{
+            background-color: black;
+        }
+        body{
+            background-color: aliceblue;
+            padding: 40px;
+        }
+        .copyright{
+            color: aliceblue;
+        }
+        .container{
+            max-width:800px;
+            margin:0 auto;
+            padding:0 20px;
+        }
+        .footer-content{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .footer-section{
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            color: aliceblue;
+        }
+        .about{
+            text-align:center;
+        }
+        .about h2{
+            margin-bottom:20px;
+        }
+        .about p{
+            font-size:18px;
+            line-height: 1.5;
+            margin-bottom:20px;
+        }
+        .contact-links a{
+            display:inline-block;
+            color:black;
+            font-size: 24px;
+            margin:0 10px;
+            transition: all 0.3s ease;
+        }
+        .contact-links a:hover {
+        
+        }
+        
+        header{
+            color: red;
+            text-align: center;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            border-style: solid;
+            border-color: black;
+            border-spacing: 12px;
+            border: 5px double black;
+            
+        }
+        table{
+            background-color: aliceblue;
+        }
+        #cc{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            color: black;
+        }
+        </style>
+        <div class="container">
+            <div class="footer-content">
+            <div class="footer-section about">
+            <h2>Contactame</h2>
+            <p>Redes Sociales:</p>
+            
+            </body>
+            </html>
